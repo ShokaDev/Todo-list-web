@@ -1,4 +1,4 @@
-# TaskEase - Web To-Do List with Multi-User System
+# Todo-list-web - Web To-Do List with Multi-User System
 
 Web to-do list yang dirancang untuk membantu pengguna mengatur, memantau, dan menyelesaikan tugas harian dengan lebih terstruktur. Aplikasi ini mendukung banyak pengguna dengan peran berbeda (Admin & Member), serta memiliki tampilan dashboard modern yang responsif.
 
@@ -37,15 +37,15 @@ Web to-do list yang dirancang untuk membantu pengguna mengatur, memantau, dan me
 
 1. **Clone Repository**
     ```bash
-    git clone https://github.com/ShokaDev/Tugas_ToDo5.git
+    git clone https://github.com/ShokaDev/Todo-list-web.git
 
 2. **Pindah ke Direktori Project**
     ```bash
-    cd Tugas_ToDo5
+    cd Todo-list-web
 
 3. **Pindahkan ke Folder www Laragon (jika pakai)**
     ```makefile
-    C:\laragon\www\Tugas-ToDo5
+    C:\laragon\www\Todo-list-web
 
 4. **Import Database**
     * Buka phpMyAdmin
@@ -53,8 +53,7 @@ Web to-do list yang dirancang untuk membantu pengguna mengatur, memantau, dan me
 
 5. **Jalankan di Browser**
     ```arduino
-    http://localhost/TaskEase
-
+    http://localhost/Todo-list-web
 ---
 
 ## 🛠 Teknologi yang Digunakan
