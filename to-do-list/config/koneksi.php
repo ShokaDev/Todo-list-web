@@ -1,12 +1,11 @@
 <?php
 $host = "localhost";
 $user = "root";
-$password = "";
-$database = "todolist";
+$pass = "";
+$db   = "administrasi-barang";
 
-$con = new mysqli($host, $user, $password, $database);
-
-if ($con->connect_error) {
-    die("Koneksi gagal: " . $con->connect_error);
+$conn = mysqli_connect($host, $user, $pass, $db);
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
 ?>

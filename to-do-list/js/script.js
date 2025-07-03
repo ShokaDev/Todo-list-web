@@ -1,73 +1,19 @@
-const taskList = document.querySelector('.task-list');
+const body = document.querySelector("body"),
+    sidebar = body.querySelector(".sidebar"),
+    toggle = body.querySelector(".toggle"),
+    modeSwitch = body.querySelector(".toggle-switch"),
+    modeText = body.querySelector(".mode-text");
 
-function enterKey(event) {
-    if(event.key === 'Enter') {
-        addTodo();
-    }
-}
+toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});
 
-LoadTodo();
-function LoadTodo() {
-    const taskStorage = localStorage.getItem('taskStorage');
-    if(taskStorage !== null) {
-        taskList.insertAdjacentHTML('beforeend', taskStorage);
-        countPendingTasks();
-    }
-}
+modeSwitch.addEventListener("click", () => {
+    body.classList.toggle("dark");
 
-function addTodo() {
-    const inputTodo = document.getElementById('inputTodo');
-
-    if(inputTodo.value.trim() !== '') {    
-        const element = `
-        <div class="task">
-            <button onclick="checkBtn(this)" class="check-btn">
-                <i class='bx bx-check' ></i>    
-            </button>
-            <span onclick="checkBtn(this)">${inputTodo.value}</span>
-            <button onclick="deleteBtn(this)" class="delete-btn">
-                <i class='bx bx-trash' ></i>
-            </button>
-        </div>`;
-    
-        taskList.insertAdjacentHTML('afterbegin', element);
-
-        saveTodo();    
-        countPendingTasks();
-
-        inputTodo.value = '';    
+    if (body.classList.contains("dark")) {
+        modeText.innerText = "Light Mode";
     } else {
-        alert('Masukin dulu teks nya!');
+        modeText.innerText = "Dark Mode";
     }
-}
-
-function checkBtn(element) {
-    const task = element.closest('.task');
-    task.classList.toggle('true');
-    saveTodo();
-    countPendingTasks();
-}
-    
-function deleteBtn(element) {    
-    const task = element.closest('.task');
-    task.remove();
-    saveTodo();
-    countPendingTasks();
-}
-    
-function countPendingTasks() {
-    const countPendingTasks = document.getElementById('countPendingTasks');
-    countPendingTasks.textContent = document.querySelectorAll('.task:not(.true)').length;
-}
-
-function clearAll() {
-    if(confirm('Clear all tasks?')) {        
-        taskList.innerHTML = '';
-        localStorage.removeItem('taskStorage'); // Hapus localStorage juga
-        countPendingTasks();
-    }
-}
-        
-function saveTodo() {    
-    localStorage.setItem('taskStorage', taskList.innerHTML);
-}
+});
